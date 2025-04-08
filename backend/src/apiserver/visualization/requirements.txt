@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=- --resolver=backtracking -
 #
-absl-py==1.4.0
+absl-py
     # via
     #   tensorboard
     #   tensorflow
@@ -12,70 +12,70 @@ absl-py==1.4.0
     #   tensorflow-metadata
     #   tensorflow-model-analysis
     #   tfx-bsl
-apache-beam[gcp]==2.46.0
+apache-beam[gcp]
     # via
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
     #   tfx-bsl
-argon2-cffi==23.1.0
+argon2-cffi
     # via
     #   jupyter-server
     #   notebook
-argon2-cffi-bindings==21.2.0
+argon2-cffi-bindings
     # via argon2-cffi
-astunparse==1.6.3
+astunparse
     # via tensorflow
-attrs==23.1.0
+attrs
     # via
     #   jsonschema
     #   referencing
-backcall==0.2.0
+backcall
     # via ipython
-bleach==6.0.0
+bleach
     # via nbconvert
-bokeh==1.2.0
+bokeh
     # via -r -
-cachetools==4.2.4
+cachetools
     # via
     #   apache-beam
     #   google-auth
-certifi==2023.7.22
+certifi
     # via requests
-cffi==1.15.1
+cffi
     # via argon2-cffi-bindings
-charset-normalizer==3.2.0
+charset-normalizer
     # via requests
-cloudpickle==2.2.1
+cloudpickle
     # via apache-beam
-comm==0.1.4
+comm
     # via ipywidgets
-crcmod==1.7
+crcmod
     # via apache-beam
-decorator==5.1.1
+decorator
     # via
     #   gcsfs
     #   ipython
-defusedxml==0.7.1
+defusedxml
     # via nbconvert
-dill==0.3.1.1
+dill
     # via apache-beam
-docopt==0.6.2
+docopt
     # via hdfs
-entrypoints==0.4
+entrypoints
     # via nbconvert
-fastavro==1.8.3
+fastavro
     # via apache-beam
-fasteners==0.19
+fasteners
     # via
     #   apache-beam
     #   google-apitools
-flatbuffers==23.5.26
+flatbuffers
     # via tensorflow
-gast==0.4.0
+gast
     # via tensorflow
-gcsfs==0.2.3
+gcsfs
     # via -r -
-google-api-core[grpc]==2.11.1
+google-api-core[grpc]
     # via
     #   google-cloud-bigquery
     #   google-cloud-bigquery-storage
@@ -90,13 +90,13 @@ google-api-core[grpc]==2.11.1
     #   google-cloud-spanner
     #   google-cloud-videointelligence
     #   google-cloud-vision
-google-api-python-client==1.7.12
+google-api-python-client
     # via
     #   -r -
     #   tfx-bsl
-google-apitools==0.5.31
+google-apitools
     # via apache-beam
-google-auth==2.23.0
+google-auth
     # via
     #   apache-beam
     #   gcsfs
@@ -106,65 +106,65 @@ google-auth==2.23.0
     #   google-auth-oauthlib
     #   google-cloud-core
     #   tensorboard
-google-auth-httplib2==0.1.1
+google-auth-httplib2
     # via
     #   apache-beam
     #   google-api-python-client
-google-auth-oauthlib==0.4.6
+google-auth-oauthlib
     # via
     #   gcsfs
     #   tensorboard
-google-cloud-bigquery==3.11.4
+google-cloud-bigquery
     # via apache-beam
-google-cloud-bigquery-storage==2.16.2
+google-cloud-bigquery-storage
     # via apache-beam
-google-cloud-bigtable==1.7.3
+google-cloud-bigtable
     # via apache-beam
-google-cloud-core==2.3.3
+google-cloud-core
     # via
     #   apache-beam
     #   google-cloud-bigquery
     #   google-cloud-bigtable
     #   google-cloud-datastore
     #   google-cloud-spanner
-google-cloud-datastore==1.15.5
+google-cloud-datastore
     # via apache-beam
-google-cloud-dlp==3.12.3
+google-cloud-dlp
     # via apache-beam
-google-cloud-language==1.3.2
+google-cloud-language
     # via apache-beam
-google-cloud-pubsub==2.18.4
+google-cloud-pubsub
     # via
     #   apache-beam
     #   google-cloud-pubsublite
-google-cloud-pubsublite==1.8.3
+google-cloud-pubsublite
     # via apache-beam
-google-cloud-recommendations-ai==0.7.1
+google-cloud-recommendations-ai
     # via apache-beam
-google-cloud-spanner==3.40.1
+google-cloud-spanner
     # via apache-beam
-google-cloud-videointelligence==1.16.3
+google-cloud-videointelligence
     # via apache-beam
-google-cloud-vision==3.4.4
+google-cloud-vision
     # via apache-beam
-google-crc32c==1.5.0
+google-crc32c
     # via google-resumable-media
-google-pasta==0.2.0
+google-pasta
     # via tensorflow
-google-resumable-media==2.6.0
+google-resumable-media
     # via google-cloud-bigquery
-googleapis-common-protos[grpc]==1.60.0
+googleapis-common-protos[grpc]
     # via
     #   google-api-core
     #   grpc-google-iam-v1
     #   grpcio-status
     #   tensorflow-metadata
-grpc-google-iam-v1==0.12.6
+grpc-google-iam-v1
     # via
     #   google-cloud-bigtable
     #   google-cloud-pubsub
     #   google-cloud-spanner
-grpcio==1.58.0
+grpcio
     # via
     #   apache-beam
     #   google-api-core
@@ -177,108 +177,108 @@ grpcio==1.58.0
     #   tensorboard
     #   tensorflow
     #   tensorflow-serving-api
-grpcio-status==1.48.2
+grpcio-status
     # via
     #   google-api-core
     #   google-cloud-pubsub
     #   google-cloud-pubsublite
-h5py==3.9.0
+h5py
     # via tensorflow
-hdfs==2.7.2
+hdfs
     # via apache-beam
-httplib2==0.21.0
+httplib2
     # via
     #   apache-beam
     #   google-api-python-client
     #   google-apitools
     #   google-auth-httplib2
     #   oauth2client
-idna==3.4
+idna
     # via requests
-importlib-metadata==6.8.0
+importlib-metadata
     # via markdown
-importlib-resources==6.1.0
+importlib-resources
     # via
     #   jsonschema
     #   jsonschema-specifications
-ipykernel==5.1.1
+ipykernel
     # via
     #   -r -
     #   notebook
-ipython==7.12.0
+ipython
     # via
     #   -r -
     #   ipykernel
     #   ipywidgets
     #   tensorflow-model-analysis
-ipython-genutils==0.2.0
+ipython-genutils
     # via
     #   ipywidgets
     #   nbformat
     #   notebook
-ipywidgets==7.8.1
+ipywidgets
     # via tensorflow-model-analysis
-itables==0.1.0
+itables
     # via -r -
-jedi==0.19.0
+jedi
     # via ipython
-jinja2==2.11.3
+jinja2
     # via
     #   -r -
     #   bokeh
     #   nbconvert
     #   notebook
-joblib==0.14.1
+joblib
     # via
     #   scikit-learn
     #   tensorflow-data-validation
-jsonschema==4.19.1
+jsonschema
     # via nbformat
-jsonschema-specifications==2023.7.1
+jsonschema-specifications
     # via jsonschema
-jupyter-client==5.3.5
+jupyter-client
     # via
     #   -r -
     #   ipykernel
     #   notebook
-jupyter-core==5.3.1
+jupyter-core
     # via
     #   jupyter-client
     #   nbconvert
     #   nbformat
     #   notebook
-jupyterlab-widgets==1.1.7
+jupyterlab-widgets
     # via ipywidgets
-keras==2.10.0
+keras==3.9
     # via tensorflow
-keras-preprocessing==1.1.2
+keras-preprocessing
     # via tensorflow
-libclang==16.0.6
+libclang
     # via tensorflow
-markdown==3.4.4
+markdown
     # via tensorboard
-markupsafe==2.0.1
+markupsafe
     # via
     #   -r -
     #   jinja2
-mistune==0.8.4
+mistune
     # via
     #   -r -
     #   nbconvert
-nbconvert==5.5.0
+nbconvert
     # via
     #   -r -
     #   notebook
-nbformat==4.4.0
+nbformat
     # via
     #   -r -
     #   nbconvert
     #   notebook
-nest-asyncio==1.5.8
+nest-asyncio
     # via notebook
-notebook==6.4.13
+notebook
     # via widgetsnbextension
-numpy==1.24.4
+numpy
     # via
     #   apache-beam
     #   bokeh
@@ -294,48 +294,48 @@ numpy==1.24.4
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
     #   tfx-bsl
-oauth2client==4.1.3
+oauth2client
     # via google-apitools
-oauthlib==3.2.2
+oauthlib
     # via requests-oauthlib
-objsize==0.6.1
+objsize
     # via apache-beam
-opt-einsum==3.3.0
+opt-einsum
     # via tensorflow
-orjson==3.9.7
+orjson
     # via apache-beam
-overrides==6.5.0
+overrides
     # via google-cloud-pubsublite
-packaging==23.1
+packaging
     # via
     #   bokeh
     #   google-cloud-bigquery
     #   tensorflow
-pandas==1.5.3
+pandas
     # via
     #   itables
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
     #   tfx-bsl
-pandocfilters==1.5.0
+pandocfilters
     # via nbconvert
-parso==0.8.3
+parso
     # via jedi
-pexpect==4.8.0
+pexpect
     # via ipython
-pickleshare==0.7.5
+pickleshare
     # via ipython
-pillow==10.0.1
+pillow
     # via bokeh
-pkgutil-resolve-name==1.3.10
+pkgutil-resolve-name
     # via jsonschema
-platformdirs==3.10.0
+platformdirs
     # via jupyter-core
-prometheus-client==0.17.1
+prometheus-client
     # via notebook
-prompt-toolkit==3.0.39
+prompt-toolkit
     # via ipython
-proto-plus==1.22.3
+proto-plus
     # via
     #   apache-beam
     #   google-cloud-bigquery
@@ -345,7 +345,7 @@ proto-plus==1.22.3
     #   google-cloud-recommendations-ai
     #   google-cloud-spanner
     #   google-cloud-vision
-protobuf==3.19.6
+protobuf
     # via
     #   apache-beam
     #   google-api-core
@@ -371,65 +371,65 @@ protobuf==3.19.6
     #   tensorflow-model-analysis
     #   tensorflow-serving-api
     #   tfx-bsl
-ptyprocess==0.7.0
+ptyprocess
     # via
     #   pexpect
     #   terminado
-pyarrow==5.0.0
+pyarrow
     # via
     #   apache-beam
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
     #   tfx-bsl
-pyasn1==0.5.0
+pyasn1
     # via
     #   oauth2client
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.3.0
+pyasn1-modules
     # via
     #   google-auth
     #   oauth2client
-pycparser==2.21
+pycparser
     # via cffi
-pydot==1.4.2
+pydot
     # via apache-beam
-pyfarmhash==0.3.2
+pyfarmhash
     # via tensorflow-data-validation
-pygments==2.16.1
+pygments
     # via
     #   ipython
     #   nbconvert
-pymongo==3.13.0
+pymongo
     # via apache-beam
-pyparsing==3.1.1
+pyparsing
     # via
     #   httplib2
     #   pydot
-python-dateutil==2.8.2
+python-dateutil
     # via
     #   apache-beam
     #   bokeh
     #   google-cloud-bigquery
     #   jupyter-client
     #   pandas
-pytz==2023.3.post1
+pytz
     # via
     #   apache-beam
     #   pandas
-pyyaml==6.0.1
+pyyaml
     # via bokeh
-pyzmq==25.1.1
+pyzmq
     # via
     #   jupyter-client
     #   notebook
-referencing==0.30.2
+referencing
     # via
     #   jsonschema
     #   jsonschema-specifications
-regex==2023.8.8
+regex
     # via apache-beam
-requests==2.31.0
+requests
     # via
     #   apache-beam
     #   gcsfs
@@ -438,25 +438,25 @@ requests==2.31.0
     #   hdfs
     #   requests-oauthlib
     #   tensorboard
-requests-oauthlib==1.3.1
+requests-oauthlib
     # via google-auth-oauthlib
-rpds-py==0.10.3
+rpds-py
     # via
     #   jsonschema
     #   referencing
-rsa==4.9
+rsa
     # via
     #   google-auth
     #   oauth2client
-scikit-learn==0.24.2
+scikit-learn
     # via -r -
-scipy==1.10.1
+scipy
     # via
     #   scikit-learn
     #   tensorflow-model-analysis
-send2trash==1.8.2
+send2trash
     # via notebook
-six==1.16.0
+six
     # via
     #   astunparse
     #   bleach
@@ -471,52 +471,52 @@ six==1.16.0
     #   tensorflow
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
-sqlparse==0.4.4
+sqlparse
     # via google-cloud-spanner
-tensorboard==2.10.1
+tensorboard
     # via tensorflow
-tensorboard-data-server==0.6.1
+tensorboard-data-server
     # via tensorboard
-tensorboard-plugin-wit==1.8.1
+tensorboard-plugin-wit
     # via tensorboard
-tensorflow==2.10.1
+tensorflow
     # via
     #   -r -
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
     #   tensorflow-serving-api
     #   tfx-bsl
-tensorflow-data-validation==1.9.0
+tensorflow-data-validation
     # via -r -
-tensorflow-estimator==2.10.0
+tensorflow-estimator
     # via tensorflow
-tensorflow-io-gcs-filesystem==0.34.0
+tensorflow-io-gcs-filesystem
     # via tensorflow
-tensorflow-metadata==1.9.0
+tensorflow-metadata
     # via
     #   -r -
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
     #   tfx-bsl
-tensorflow-model-analysis==0.40.0
+tensorflow-model-analysis
     # via -r -
-tensorflow-serving-api==2.10.1
+tensorflow-serving-api
     # via
     #   -r -
     #   tfx-bsl
-termcolor==2.3.0
+termcolor
     # via tensorflow
-terminado==0.17.1
+terminado
     # via notebook
-testpath==0.6.0
+testpath
     # via nbconvert
-tfx-bsl==1.9.0
+tfx-bsl
     # via
     #   tensorflow-data-validation
     #   tensorflow-model-analysis
-threadpoolctl==3.2.0
+threadpoolctl
     # via scikit-learn
-tornado==6.3.3
+tornado
     # via
     #   -r -
     #   bokeh
@@ -524,7 +524,7 @@ tornado==6.3.3
     #   jupyter-client
     #   notebook
     #   terminado
-traitlets==5.10.0
+traitlets
     # via
     #   comm
     #   ipykernel
@@ -535,36 +535,36 @@ traitlets==5.10.0
     #   nbconvert
     #   nbformat
     #   notebook
-typing-extensions==4.8.0
+typing-extensions
     # via
     #   apache-beam
     #   tensorflow
-uritemplate==3.0.1
+uritemplate
     # via google-api-python-client
-urllib3==1.26.17
+urllib3
     # via
     #   google-auth
     #   requests
-wcwidth==0.2.6
+wcwidth
     # via prompt-toolkit
-webencodings==0.5.1
+webencodings
     # via bleach
-werkzeug==2.1.2
+werkzeug==3.0.3
     # via tensorboard
-wheel==0.41.2
+wheel
     # via
     #   astunparse
     #   tensorboard
-widgetsnbextension==3.6.6
+widgetsnbextension
     # via ipywidgets
-wrapt==1.15.0
+wrapt
     # via tensorflow
-zipp==3.17.0
+zipp
     # via
     #   importlib-metadata
     #   importlib-resources
-zstandard==0.21.0
+zstandard
     # via apache-beam
 
 # The following packages are considered to be unsafe in a requirements file:
-# setuptools
+#setuptools

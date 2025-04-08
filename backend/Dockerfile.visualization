@@ -18,36 +18,107 @@
 # and exporter.py files in the directory specified above.
 
 # This image should be in sync with image in backend/src/apiserver/visualization/update_requirements.sh.
-FROM tensorflow/tensorflow:2.10.1
+ARG UBUNTU_VERSION=24.04
+
+FROM ubuntu:${UBUNTU_VERSION} AS base
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y curl
+
+# See http://bugs.python.org/issue19846
+ENV LANG C.UTF-8
+
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip
+
+RUN python3 -m pip --no-cache-dir install --upgrade --break-system-packages \
+    setuptools
+
+# Some TF tools expect a "python" binary
+RUN ln -s $(which python3) /usr/local/bin/python
+
+# Options:
+#   tensorflow
+#   tensorflow-gpu
+#   tf-nightly
+#   tf-nightly-gpu
+# Set --build-arg TF_PACKAGE_VERSION=1.11.0rc0 to install a specific version.
+# Installs the latest version by default.
+ARG TF_PACKAGE=tensorflow
+ARG TF_PACKAGE_VERSION=
+RUN python3 -m pip install --no-cache-dir ${TF_PACKAGE}${TF_PACKAGE_VERSION:+==${TF_PACKAGE_VERSION}} --break-system-packages
+
+COPY ./backend/bashrc /etc/bash.bashrc
+RUN chmod a+rwx /etc/bash.bashrc
 
 RUN apt-get update \
   && apt-get install -y wget curl tar openssl
 
-RUN curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-461.0.0-linux-x86_64.tar.gz> /tmp/google-cloud-sdk.tar.gz
-
+RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
 RUN mkdir -p /usr/local/gcloud
 RUN tar -C /usr/local/gcloud -xf /tmp/google-cloud-sdk.tar.gz
 RUN /usr/local/gcloud/google-cloud-sdk/install.sh
 ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
 
+# install dependency
+RUN apt-get update && apt-get install -y \
+    wget \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libgdbm-dev \
+    libdb5.3-dev \
+    libbz2-dev \
+    libexpat1-dev \
+    liblzma-dev \
+    tk-dev \
+    uuid-dev \
+    libffi-dev \
+    curl \
+    xz-utils \
+    ca-certificates \
+    git \
+    make
+
+# install python3.11
+RUN wget https://www.python.org/ftp/python/3.11.7/Python-3.11.7.tgz && \
+    tar -xzf Python-3.11.7.tgz && \
+    cd Python-3.11.7 && \
+    ./configure \
+        --prefix=/opt/python3.11 \
+        --enable-optimizations \
+        --with-openssl=/usr \
+    && make -j$(nproc) && make altinstall && \
+    cd .. && rm -rf Python-3.11.7 Python-3.11.7.tgz
+
 WORKDIR /src
 
 COPY backend/src/apiserver/visualization/requirements.txt /src
 
-RUN python3 -m pip install -r requirements.txt --no-cache-dir
+RUN /opt/python3.11/bin/python3.11 -m pip install -r requirements.txt --no-cache-dir --break-system-packages
  
 COPY backend/src/apiserver/visualization /src
 
-RUN rm -rf /usr/local/lib/python3.8/dist-packages/tornado/test
+RUN rm -rf /opt/python3.11/lib/python3.11/test
+RUN rm -rf /opt/python3.11/lib/python3.11/site-packages/tornado/test
+RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/requests/tests/certs/expired/ca/ca-private.key
+RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/requests/tests/certs/expired/server/server.key
+RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/requests/tests/certs/mtls/client/client.key
+RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/requests/tests/certs/valid/server/server.key
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/urllib3/dummyserver/certs/cacert.key
 RUN rm -f  /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/urllib3/dummyserver/certs/server.key
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google-auth-library-python/tests/data/privatekey.pem
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google-auth-library-python/tests
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google-auth-library-python/tests/data/pem_from_pkcs12.pem
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google-auth-library-python/tests/data/es256_privatekey.pem
- 
 
-ENTRYPOINT [ "python3", "server.py" ]
+ENTRYPOINT [ "/opt/python3.11/bin/python3.11", "server.py" ]
 
 
 # https://github.com/kubeflow/pipelines/blob/1.8.2/backend/Dockerfile
