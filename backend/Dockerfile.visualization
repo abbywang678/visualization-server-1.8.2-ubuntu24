@@ -47,7 +47,7 @@ RUN ln -s $(which python3) /usr/local/bin/python
 # Set --build-arg TF_PACKAGE_VERSION=1.11.0rc0 to install a specific version.
 # Installs the latest version by default.
 ARG TF_PACKAGE=tensorflow
-ARG TF_PACKAGE_VERSION=
+ARG TF_PACKAGE_VERSION
 RUN python3 -m pip install --no-cache-dir ${TF_PACKAGE}${TF_PACKAGE_VERSION:+==${TF_PACKAGE_VERSION}} --break-system-packages
 
 COPY ./backend/bashrc /etc/bash.bashrc
@@ -102,7 +102,7 @@ WORKDIR /src
 COPY backend/src/apiserver/visualization/requirements.txt /src
 
 RUN /opt/python3.11/bin/python3.11 -m pip install -r requirements.txt --no-cache-dir --break-system-packages
- 
+
 COPY backend/src/apiserver/visualization /src
 
 RUN rm -rf /opt/python3.11/lib/python3.11/test
@@ -117,6 +117,7 @@ RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google-auth-library-python/tests
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google-auth-library-python/tests/data/pem_from_pkcs12.pem
 RUN rm -rf /usr/local/gcloud/google-cloud-sdk/platform/gsutil/third_party/google-auth-library-python/tests/data/es256_privatekey.pem
+RUN rm -rf /usr/local/lib/python3.11/-kubefsite-packages/nltk/corpus/reader/sinica_treebank.py
 
 ENTRYPOINT [ "/opt/python3.11/bin/python3.11", "server.py" ]
 
