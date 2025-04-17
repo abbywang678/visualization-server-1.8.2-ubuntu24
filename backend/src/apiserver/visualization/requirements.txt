@@ -549,7 +549,7 @@ wcwidth
     # via prompt-toolkit
 webencodings
     # via bleach
-werkzeug==3.0.3
+werkzeug==3.0.6
     # via tensorboard
 wheel
     # via
